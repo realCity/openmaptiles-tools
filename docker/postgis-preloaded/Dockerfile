@@ -22,7 +22,9 @@ FROM openmaptiles/postgis:${OMT_TOOLS_VERSION} as builder
 ENV DATA_DIR=/import \
     POSTGRES_DB=openmaptiles \
     POSTGRES_USER=openmaptiles \
-    POSTGRES_PASSWORD=openmaptiles
+    POSTGRES_PASSWORD=openmaptiles \
+    POSTGRES_HOST_AUTH_METHOD=md5 \
+    POSTGRES_INITDB_ARGS="--auth-host=md5"
 
 USER root
 
